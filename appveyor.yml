@@ -1,0 +1,59 @@
+version: '6.0.51.{BUILD}'
+
+image: Visual Studio 2019
+
+install:
+    - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars32.bat"
+    - set ORANGEC=c:\ORC
+
+branches:
+   only:
+     - master
+     - /v\d*\.\d*\.\d*\.\d*/
+
+configuration:
+     - ORC
+
+for:
+-
+      matrix:
+            only:
+                - configuration: ORC
+      environment:
+          BUILD_PROFILE: MS
+      deploy:
+          release: ORC-$(APPVEYOR_REPO_TAG_NAME)
+          description: 'Current Release'
+          provider: GitHub
+          auth_token:
+              secure: L2Uw6o1Msz3bAsw+p2n9bjxJqqtuP+7YuJNaWtpsRnWZ3JWDjkULQG6c6YRPk+v+
+          artifact: /.*/
+          draft: false
+          prerelease: false
+          on:
+              branch: /v\d*\.\d*\.\d*\.\d*/
+              APPVEYOR_REPO_TAG: true
+
+skip_commits:
+  files:
+    - '**/*.txt'
+    - '**/*.doc'
+    - '**/*.md'
+    - '**/*.html'
+ 
+build_script:
+# the appveyor virtual machine reported two processors, so, lets try running parallel compile!
+        - cmd: |
+              cd ..\..
+              move projects\orc .
+              mkdir \orc\temp
+              cd orc\src
+              call build.bat
+              cd ..\.. 
+              move orc projects
+              cd projects\orc
+
+artifacts:
+  - path: "dist\\*.*"
+    name: releasefiles
+

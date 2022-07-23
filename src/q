@@ -1,0 +1,198 @@
+
+7-Zip 22.00 (x64) : Copyright (c) 1999-2022 Igor Pavlov : 2022-06-15
+
+Scanning the drive for archives:
+2 files, 939321 bytes (918 KiB)
+
+Listing archive: ..\dist\ZippedBinaries60511.zip
+
+--
+Path = ..\dist\ZippedBinaries60511.zip
+Type = zip
+Physical Size = 297593
+
+   Date      Time    Attr         Size   Compressed  Name
+------------------- ----- ------------ ------------  ------------------------
+2019-01-28 00:45:51 ....A        35821        11888  orc\copying
+2018-10-28 21:08:23 ....A         2546         1085  orc\doc\ORC.md
+2022-07-23 03:59:56 ....A           92           87  orc\LICENSE.TXT
+2022-07-23 14:13:23 ....A       604672       283961  orc\orc.exe
+------------------- ----- ------------ ------------  ------------------------
+2022-07-23 14:13:23             643131       297021  4 files
+
+Listing archive: ..\dist\ZippedSources60511.zip
+
+--
+Path = ..\dist\ZippedSources60511.zip
+Type = zip
+Physical Size = 641728
+
+   Date      Time    Attr         Size   Compressed  Name
+------------------- ----- ------------ ------------  ------------------------
+2018-10-28 21:08:23 ....A         2546         1085  orc\doc\ORC.md
+2022-02-13 10:09:23 ....A         3675         1421  orc\src\bcc32.mak
+2022-02-13 10:09:23 ....A         4101         1684  orc\src\clang.dbg.mak
+2022-02-13 10:09:23 ....A         4066         1661  orc\src\clang.mak
+2022-02-10 20:24:57 ....A          173          135  orc\src\config.bat
+2022-02-13 10:09:24 ....A         1260          603  orc\src\config.mak
+2019-01-28 00:45:51 ....A        35821        11888  orc\src\copying
+2022-07-23 03:41:08 ....A          998          529  orc\src\dirs.mak
+2022-02-13 10:09:24 ....A         1374          669  orc\src\dist.mak
+2022-02-13 10:09:24 ....A         1628          685  orc\src\doszip.mak
+2022-02-13 10:09:24 ....A         3467         1357  orc\src\gcc-linux.mak
+2022-07-23 03:59:56 ....A           92           87  orc\src\LICENSE.TXT
+2022-07-23 04:32:14 ....A         3047         1166  orc\src\makefile
+2022-02-13 10:09:24 ....A         3615         1377  orc\src\mingw.mak
+2022-02-13 10:09:24 ....A         3472         1366  orc\src\mingw64.mak
+2022-07-20 21:04:45 ....A         4299         1748  orc\src\ms.mak
+2022-02-16 23:18:21 ....A         4480         1473  orc\src\occ.mak
+2022-02-13 10:09:24 ....A         4322         1093  orc\src\ocpp\Errors.cpp
+2022-02-13 10:09:24 ....A         2762          963  orc\src\ocpp\Errors.h
+2022-02-13 10:09:24 ....A        36527         6272  orc\src\ocpp\Floating.cpp
+2022-02-13 10:09:24 ....A         6585         1937  orc\src\ocpp\Floating.h
+2022-02-13 10:09:24 ....A         5385         1765  orc\src\ocpp\InputFile.cpp
+2022-02-13 10:09:24 ....A         3576         1371  orc\src\ocpp\InputFile.h
+2022-02-13 10:09:24 ....A         1310          688  orc\src\ocpp\makefile
+2018-10-28 21:08:32 ....A          854          500  orc\src\ocpp\makefile.b32
+2022-02-13 10:09:24 ....A         3146         1135  orc\src\ocpp\MakeStubs.cpp
+2022-02-13 10:09:24 ....A         1870          789  orc\src\ocpp\MakeStubs.h
+2022-02-10 20:24:57 ....A         9176         1470  orc\src\ocpp\ocpp.vcxproj
+2022-02-10 20:24:57 ....A         4416          687  orc\src\ocpp\ocpp.vcxproj.filters
+2022-02-10 20:24:57 ....A         7766         1229  orc\src\ocpp\ocppexe.vcxproj
+2022-02-10 20:24:57 ....A         1101          496  orc\src\ocpp\ocppexe.vcxproj.filters
+2022-02-13 10:09:24 ....A         1783          805  orc\src\ocpp\PipeArbitrator.cpp
+2022-02-13 10:09:24 ....A         1337          672  orc\src\ocpp\PipeArbitrator.h
+2022-02-13 10:09:24 ....A        12558         2370  orc\src\ocpp\ppCond.cpp
+2022-02-13 10:09:24 ....A         3398         1225  orc\src\ocpp\ppCond.h
+2022-02-13 10:09:24 ....A         2301          920  orc\src\ocpp\ppCtx.cpp
+2022-02-13 10:09:24 ....A         1866          831  orc\src\ocpp\ppCtx.h
+2022-06-18 03:54:09 ....A        43394         8417  orc\src\ocpp\ppDefine.cpp
+2022-02-13 10:09:24 ....A         6328         2024  orc\src\ocpp\ppDefine.h
+2022-02-13 10:09:24 ....A         1305          646  orc\src\ocpp\ppError.cpp
+2022-02-13 10:09:24 ....A         1418          702  orc\src\ocpp\ppError.h
+2022-02-13 10:09:24 ....A        17123         2568  orc\src\ocpp\ppExpr.cpp
+2022-02-13 10:09:24 ....A         2950         1038  orc\src\ocpp\ppExpr.h
+2022-02-13 10:09:24 ....A         4808         1311  orc\src\ocpp\ppFile.cpp
+2022-02-13 10:09:24 ....A         2452         1051  orc\src\ocpp\ppFile.h
+2022-02-13 10:09:24 ....A        15766         4193  orc\src\ocpp\ppInclude.cpp
+2022-02-13 10:09:24 ....A         5647         1766  orc\src\ocpp\ppInclude.h
+2022-02-13 10:09:24 ....A         2042          845  orc\src\ocpp\ppkw.h
+2022-02-13 10:09:24 ....A        12972         3092  orc\src\ocpp\ppMacro.cpp
+2022-02-13 10:09:24 ....A         3056         1144  orc\src\ocpp\ppMacro.h
+2022-02-13 10:09:24 ....A        16228         4028  orc\src\ocpp\ppMain.cpp
+2022-02-13 10:09:24 ....A         2201          830  orc\src\ocpp\ppMain.h
+2022-02-13 10:09:24 ....A        11106         2842  orc\src\ocpp\ppPragma.cpp
+2022-02-13 10:09:24 ....A        11385         2474  orc\src\ocpp\ppPragma.h
+2022-02-13 10:09:24 ....A        10444         2261  orc\src\ocpp\PreProcessor.cpp
+2022-02-13 10:09:24 ....A         5100         1685  orc\src\ocpp\PreProcessor.h
+2022-02-13 10:09:24 ....A         1620          758  orc\src\ocpp\SymbolTable.cpp
+2022-02-13 10:09:24 ....A         2937         1091  orc\src\ocpp\SymbolTable.h
+2021-06-11 21:42:20 ....A           70           54  orc\src\ocpp\target.cfg
+2019-09-01 00:11:23 ....A           28           28  orc\src\ocpp\tocheck.txt
+2022-02-13 10:09:24 ....A        18664         4187  orc\src\ocpp\Token.cpp
+2022-02-13 10:09:24 ....A         7647         1896  orc\src\ocpp\Token.h
+2022-07-21 22:30:49 ....A       603136       269125  orc\src\omake.exe
+2022-02-13 10:09:24 ....A         3513         1229  orc\src\orc\Accelerators.cpp
+2022-02-13 10:09:24 ....A         1996          885  orc\src\orc\Accelerators.h
+2022-02-13 10:09:24 ....A         3065         1287  orc\src\orc\Bitmap.cpp
+2022-02-13 10:09:24 ....A         1558          762  orc\src\orc\Bitmap.h
+2020-11-07 09:59:33 ....A         1061          433  orc\src\orc\cc386.rc
+2021-10-16 22:15:10 ....A         1245          477  orc\src\orc\cc68k.rc
+2022-02-13 10:09:24 ....A         3116         1189  orc\src\orc\Cursor.cpp
+2022-02-13 10:09:24 ....A         2172          935  orc\src\orc\Cursor.h
+2022-02-12 02:51:51 ....A          189          112  orc\src\orc\demorc.h
+2022-02-13 10:09:24 ....A        14710         2844  orc\src\orc\Dialog.cpp
+2022-02-13 10:09:24 ....A         5016         1499  orc\src\orc\Dialog.h
+2022-02-13 10:09:24 ....A         1793          838  orc\src\orc\DlgInclude.cpp
+2022-02-13 10:09:24 ....A         1582          764  orc\src\orc\DlgInclude.h
+2022-02-13 10:09:24 ....A         9593         1544  orc\src\orc\Expression.cpp
+2022-02-13 10:09:24 ....A         1521          716  orc\src\orc\Expression.h
+2022-02-13 10:09:24 ....A         1151          593  orc\src\orc\FileHeader.cpp
+2022-02-13 10:09:24 ....A         1385          690  orc\src\orc\FileHeader.h
+2022-02-13 10:09:24 ....A         1909          897  orc\src\orc\Font.cpp
+2022-02-13 10:09:24 ....A         1738          849  orc\src\orc\Font.h
+2022-02-13 10:09:24 ....A         1654          758  orc\src\orc\GenericResource.cpp
+2022-02-13 10:09:24 ....A         1646          774  orc\src\orc\GenericResource.h
+2022-02-13 10:09:24 ....A         3665         1394  orc\src\orc\Icon.cpp
+2022-02-13 10:09:24 ....A         3172         1179  orc\src\orc\Icon.h
+2022-02-13 10:09:24 ....A         5355         1729  orc\src\orc\Lexer.cpp
+2022-02-13 10:09:24 ....A         1807          825  orc\src\orc\Lexer.h
+2022-02-13 10:09:24 ....A         1304          692  orc\src\orc\makefile
+2022-02-13 10:09:24 ....A         7285         1637  orc\src\orc\Menu.cpp
+2022-02-13 10:09:24 ....A         3544         1306  orc\src\orc\Menu.h
+2022-02-13 10:09:24 ....A         1603          744  orc\src\orc\MessageTable.cpp
+2022-02-13 10:09:24 ....A         1596          770  orc\src\orc\MessageTable.h
+2022-01-20 23:02:55 ....A        10717         1616  orc\src\orc\orc.vcxproj
+2018-10-28 21:08:32 ....A         5077          727  orc\src\orc\orc.vcxproj.filters
+2020-11-07 10:52:25 ....A         1338          286  orc\src\orc\q1.rc
+2022-02-13 10:09:24 ....A         3795         1258  orc\src\orc\RCData.cpp
+2022-02-13 10:09:24 ....A         1682          788  orc\src\orc\RCData.h
+2022-02-13 10:09:24 ....A        14986         2980  orc\src\orc\RCFile.cpp
+2022-02-13 10:09:24 ....A         2519         1024  orc\src\orc\RCFile.h
+2022-02-13 10:09:24 ....A         2489         1062  orc\src\orc\rckw.h
+2022-02-13 10:09:24 ....A         5389         1903  orc\src\orc\rcMain.cpp
+2022-02-13 10:09:24 ....A         1565          724  orc\src\orc\rcMain.h
+2022-02-13 10:09:24 ....A         3817         1515  orc\src\orc\ResFile.cpp
+2022-02-13 10:09:24 ....A         2425         1072  orc\src\orc\ResFile.h
+2022-02-13 10:09:24 ....A         1538          708  orc\src\orc\Resource.cpp
+2022-02-13 10:09:24 ....A         2553         1021  orc\src\orc\Resource.h
+2022-02-13 10:09:24 ....A         2342          994  orc\src\orc\ResourceData.cpp
+2022-02-13 10:09:24 ....A         2310          963  orc\src\orc\ResourceData.h
+2022-02-13 10:09:24 ....A         1754          757  orc\src\orc\ResourceId.cpp
+2022-02-13 10:09:24 ....A         1847          826  orc\src\orc\ResourceId.h
+2022-02-13 10:09:24 ....A         3360          995  orc\src\orc\ResourceInfo.cpp
+2022-02-13 10:09:24 ....A         2073          881  orc\src\orc\ResourceInfo.h
+2022-02-13 10:09:24 ....A         3149         1268  orc\src\orc\StringTable.cpp
+2022-02-13 10:09:24 ....A         1772          815  orc\src\orc\StringTable.h
+2019-02-16 01:54:06 ....A           20           20  orc\src\orc\test.rc
+2022-02-13 10:09:24 ....A         9922         1998  orc\src\orc\VersionInfo.cpp
+2022-02-13 10:09:24 ....A         5816         1529  orc\src\orc\VersionInfo.h
+2021-10-16 23:44:18 ....A          596          260  orc\src\orc\x.rc
+2022-07-23 05:18:46 ....A         3708          708  orc\src\orc.sln
+2019-01-28 00:44:27 ....A          211          145  orc\src\pathext2.mak
+2019-09-15 12:13:34 ....A           70           70  orc\src\q3.mak
+2022-02-13 10:09:24 ....A         3944         1541  orc\src\radstudio.mak
+2022-02-13 10:09:24 ....A         1239          640  orc\src\redirect.mak
+2019-09-15 12:13:34 ....A          100           81  orc\src\tester.mak
+2022-07-23 04:55:18 ....A        10691         2534  orc\src\treetop.mak
+2022-02-13 10:09:24 ....A         5367         1538  orc\src\util\CmdFiles.cpp
+2022-02-13 10:09:24 ....A         2043          848  orc\src\util\CmdFiles.h
+2022-07-23 03:22:20 ....A        13872         3488  orc\src\util\CmdSwitch.cpp
+2022-07-22 20:37:20 ....A         8339         1945  orc\src\util\CmdSwitch.h
+2022-02-13 10:09:24 ....A         4480         2257  orc\src\util\crc.cpp
+2022-07-16 23:05:08 ....A         1291          678  orc\src\util\FNV_hash.h
+2020-10-11 16:54:08 ....A          956          471  orc\src\util\LICENSE.TXT
+2022-02-12 02:51:49 ....A           98           63  orc\src\util\LSDateTime.h
+2022-02-13 10:09:24 ....A         1188          623  orc\src\util\makefile
+2022-02-13 10:09:24 ....A         3009         1227  orc\src\util\NamedPipe.cpp
+2022-02-13 10:09:24 ....A         1967          877  orc\src\util\Random.cpp
+2022-02-13 10:09:24 ....A         4006         1551  orc\src\util\SharedMemory.cpp
+2022-02-13 10:09:24 ....A         1675          790  orc\src\util\SharedMemory.h
+2019-08-17 00:04:05 ....A         1994          718  orc\src\util\unicode\small.c
+2018-10-28 21:08:32 ....A       897402       124579  orc\src\util\unicode\unicodedata.txt
+2019-08-17 00:04:05 ....A         1436          441  orc\src\util\unicode\Utf8.c
+2022-02-13 10:09:24 ....A         4063         1161  orc\src\util\UTF8.cpp
+2022-02-13 10:09:24 ....A         1554          696  orc\src\util\UTF8.h
+2022-02-13 10:09:24 ....A        96230        14668  orc\src\util\UTF8Table.cpp
+2022-02-13 10:09:24 ....A        17102         3710  orc\src\util\UTF8Upper.cpp
+2022-02-10 20:24:57 ....A         7798         1276  orc\src\util\util.vcxproj
+2022-02-10 20:24:57 ....A         2718          611  orc\src\util\util.vcxproj.filters
+2022-07-16 23:05:08 ....A        13123         3874  orc\src\util\Utils.cpp
+2022-07-16 23:05:08 ....A         6194         1862  orc\src\util\Utils.h
+2022-07-16 23:10:57 ....A          355          170  orc\src\util\version.h
+2022-02-13 10:09:24 ....A         2239         1014  orc\src\util\winsystem.c
+2022-02-13 10:09:24 ....A        12191         2287  orc\src\util\xml.cpp
+2022-02-13 10:09:24 ....A         4274         1276  orc\src\util\xml.h
+2022-07-16 23:10:57 ....A          355          170  orc\src\version.h
+2018-10-28 21:08:32 ....A           50           48  orc\src\xclude.lst
+2022-07-23 05:34:48 ....A         2081          928  orc\src\zip.mak
+2022-02-13 10:09:24 ....A         1461          779  orc\src\zip7z.mak
+------------------- ----- ------------ ------------  ------------------------
+2022-07-23 05:34:48            2326649       616892  158 files
+
+------------------- ----- ------------ ------------  ------------------------
+2022-07-23 14:13:23            2969780       913913  162 files
+
+Archives: 2
+Volumes: 2
+Total archives size: 939321

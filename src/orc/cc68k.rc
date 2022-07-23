@@ -1,0 +1,36 @@
+#define CC_VERSION 1,2,3,4
+#define PRODUCT_VERSION 1,2,3,4
+#define CC_STRING_VERSION "1.2.3.4"
+#define PRODUCT_STRING_VERSION "1.2.3.4"
+#define PRODUCT_COPYRIGHT "copyright (c)"
+#define PRODUCT_NAME "cc68k"
+
+#include <windows.h>
+Language LANG_ENGLISH,SUBLANG_ENGLISH_US
+1 ICON "compiler.ico"
+1 VERSIONINFO 
+FILEVERSION CC_VERSION
+PRODUCTVERSION PRODUCT_VERSION
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+FILEOS VOS_NT_WINDOWS32
+FILETYPE VFT_APP
+BEGIN
+        BLOCK "StringFileInfo"
+        BEGIN 
+                BLOCK "040904E4"
+                BEGIN
+                        VALUE "CompanyName", "LADSoft\0"
+                        VALUE "FileDescription","CC68K C compiler\0"
+                        VALUE "FileVersion", CC_STRING_VERSION "\0"
+                        VALUE "InternalName","cc68K.exe\0"
+                        VALUE "OriginalFilename","cc68K.exe\0"
+                        VALUE "ProductName",PRODUCT_NAME "\0"
+                        VALUE "ProductVersion",PRODUCT_STRING_VERSION "\0"
+                        VALUE "Legal Copyright",PRODUCT_COPYRIGHT "\0"
+                END
+        END
+  BLOCK "VarFileInfo"
+  {
+    VALUE "Translation", 0x409, 1252 // 1252 = 0x04E4
+  } // BLOCK "VarFileInfo"
+END

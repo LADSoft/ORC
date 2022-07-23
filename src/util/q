@@ -1,0 +1,39 @@
+File CmdFiles.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+File CmdSwitch.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+File crc.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+File NamedPipe.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+File Random.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+File SharedMemory.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+File UTF8.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+File UTF8Table.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+File UTF8Upper.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+File Utils.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+#include "../version.h"
+    bool have_version = false;
+            if ((__argv[i][1] == 'V' && __argv[i][2] == 0) || !strcmp(__argv[i], "--version"))
+                have_version = true;
+    if (!have_version)
+    if (have_version)
+File xml.cpp
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
