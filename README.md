@@ -4,7 +4,7 @@
 ORC resource compiler
 
 Project Build Status:
-[![Build status Appveyor](https://ci.appveyor.com/api/projects/status/4ts7bsgas67osyht?svg=true)](https://ci.appveyor.com/project/LADSoft/orangec)
+[![Build status](https://ci.appveyor.com/api/projects/status/mg9ystqer6n6uqng?svg=true)](https://ci.appveyor.com/project/LADSoft/orc)
 
 ORC is a 32-bit resource compiler.   It is part of the [Orange C](https://www.github.com/LADSoft/OrangeC) toolchain.   
 
