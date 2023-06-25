@@ -1,25 +1,25 @@
 /* Software License Agreement
- *
- *     Copyright(C) 1994-2022 David Lindauer, (LADSoft)
- *
+ * 
+ *     Copyright(C) 1994-2023 David Lindauer, (LADSoft)
+ * 
  *     This file is part of the Orange C Compiler package.
- *
+ * 
  *     The Orange C Compiler package is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
- *
+ * 
  *     The Orange C Compiler package is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
- *
+ * 
  *     You should have received a copy of the GNU General Public License
  *     along with Orange C.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * 
  *     contact information:
  *         email: TouchStone222@runbox.com <David Lindauer>
- *
+ * 
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -315,7 +315,11 @@ std::string ppInclude::FindFile(bool specifiedAsSystem, const std::string& name,
     // #include_next basically runs through only these two, and maybe the first, if the 2nd here doesn't run, but it's already an
     // inconsistent feature so
     if (rv.empty())
-        rv = SrchPath(false, name, srchPath, skipFirst, include_files_skipped);
+    {
+        int skipped = include_files_skipped + (sysSrchPath.empty() ? 1 : 0);
+        rv = SrchPath(false, name, srchPath, skipFirst, skipped);
+        include_files_skipped = skipped - (sysSrchPath.empty() ? 1 : 0);
+    }
     // if not there and we haven't searched the system search path, do it now
     if (rv.empty() && !specifiedAsSystem)
     {
@@ -368,7 +372,7 @@ std::string ppInclude::SrchPath(bool system, const std::string& name, const std:
         }
         AddName(buf, name);
 
-        while (char* p = strchr(buf, '/'))
+        while (char* p = (char*)strchr(buf, '/'))
         {
             *p = CmdFiles::DIR_SEP[0];
         }

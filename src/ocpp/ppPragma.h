@@ -1,25 +1,25 @@
 /* Software License Agreement
- *
- *     Copyright(C) 1994-2022 David Lindauer, (LADSoft)
- *
+ * 
+ *     Copyright(C) 1994-2023 David Lindauer, (LADSoft)
+ * 
  *     This file is part of the Orange C Compiler package.
- *
+ * 
  *     The Orange C Compiler package is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
- *
+ * 
  *     The Orange C Compiler package is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
- *
+ * 
  *     You should have received a copy of the GNU General Public License
  *     along with Orange C.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * 
  *     contact information:
  *         email: TouchStone222@runbox.com <David Lindauer>
- *
+ * 
  */
 
 #ifndef ppPragma_h
@@ -33,6 +33,7 @@
 #include <set>
 #include <ctime>
 #include <stack>
+#include <vector>
 #include "Token.h"
 #include <functional>
 #define STD_PRAGMA_FENV 1
@@ -76,6 +77,46 @@ class Packing
   private:
     static Packing* instance;
     std::stack<int> list;
+};
+class AdditionalLinkerCommands
+{
+  public:
+    static std::shared_ptr<AdditionalLinkerCommands> Instance()
+    {
+        if (!instance)
+            instance = std::shared_ptr<AdditionalLinkerCommands>(new AdditionalLinkerCommands);
+        return instance;
+    }
+    void Add(std::string linkerCommand) { comments.push_back(linkerCommand); }
+    std::string Get() { return comments.back(); }
+    std::vector<std::string> GetAll() { return comments; }
+    void Clear() { comments.clear(); }
+    void Remove() { comments.pop_back(); }
+
+  private:
+    AdditionalLinkerCommands() {}
+    std::vector<std::string> comments;
+    static std::shared_ptr<AdditionalLinkerCommands> instance;
+};
+class ObjectComment
+{
+  public:
+    static std::shared_ptr<ObjectComment> Instance()
+    {
+        if (!instance)
+            instance = std::shared_ptr<ObjectComment>(new ObjectComment);
+        return instance;
+    }
+    void Add(std::string objComment) { comments.push_back(objComment); }
+    std::string Get() { return comments.back(); }
+    std::vector<std::string> GetAll() { return comments; }
+    void Clear() { comments.clear(); }
+    void Remove() { comments.pop_back(); }
+
+  private:
+    ObjectComment() {}
+    std::vector<std::string> comments;
+    static std::shared_ptr<ObjectComment> instance;
 };
 class FenvAccess
 {
@@ -387,6 +428,7 @@ class ppPragma
   public:
     ppPragma(ppInclude* Include, ppDefine* Define) : cppprio(0), ignoreGlobalInit(false)
     {
+        ObjectComment::Instance()->Clear();
         Packing::Instance()->Clear();
         FenvAccess::Instance()->Clear();
         CXLimitedRange::Instance()->Clear();
@@ -400,6 +442,7 @@ class ppPragma
     bool Check(kw token, const std::string& args);
     void ParsePragma(const std::string& args);
     int Pack() { return Packing::Instance()->Get(); }
+    std::vector<std::string> ObjComments() { return ObjectComment::Instance()->GetAll(); }
     int StdPragmas();
     int CppPrio() { return cppprio; }
     std::list<std::string>& IncludeLibs() { return Libraries::Instance()->Get(); }
@@ -434,6 +477,7 @@ class ppPragma
     void HandleOnce(Tokenizer& tk);
     void HandleIgnoreGlobalInit(Tokenizer& tk);
     void HandlePushPopMacro(Tokenizer& tk, bool push);
+    void HandleComment(Tokenizer& tk);
 
   private:
     ppDefine* define;

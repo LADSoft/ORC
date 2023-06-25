@@ -1,25 +1,25 @@
 /* Software License Agreement
- *
- *     Copyright(C) 1994-2022 David Lindauer, (LADSoft)
- *
+ * 
+ *     Copyright(C) 1994-2023 David Lindauer, (LADSoft)
+ * 
  *     This file is part of the Orange C Compiler package.
- *
+ * 
  *     The Orange C Compiler package is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
- *
+ * 
  *     The Orange C Compiler package is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
- *
+ * 
  *     You should have received a copy of the GNU General Public License
  *     along with Orange C.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * 
  *     contact information:
  *         email: TouchStone222@runbox.com <David Lindauer>
- *
+ * 
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -78,7 +78,7 @@ ppDefine::Definition::Definition(const Definition& old) : Symbol(old.GetName())
 }
 
 ppDefine::ppDefine(bool UseExtensions, ppInclude* Include, bool C89, bool Asmpp) :
-    expr(false), include(Include), c89(C89), asmpp(Asmpp), ctx(nullptr), macro(nullptr), source_date_epoch((time_t)-1)
+    expr(false), include(Include), c89(C89), asmpp(Asmpp), ctx(nullptr), macro(nullptr), source_date_epoch((time_t)-1), counter_val(0)
 {
     char* sde = getenv("SOURCE_DATE_EPOCH");
     if (sde)
@@ -194,13 +194,6 @@ ppDefine::Definition* ppDefine::Define(const std::string& name, std::string& val
             failed = true;
         else
         {
-            int n = old->GetArgCount();
-            for (int i = 0; i < n; i++)
-                if (old->GetArg(i) != d->GetArg(i))
-                {
-                    failed = true;
-                    break;
-                }
             const char* p = old->GetValue().c_str();
             const char* q = d->GetValue().c_str();
             while (*p && *q)
@@ -430,6 +423,10 @@ int ppDefine::LookupDefault(std::string& macro, int begin, int end, const std::s
         insert = dateiso;
     else if (name == "__TIME__")
         insert = time;
+    else if (name == "__COUNTER__")
+    {
+        insert = Utils::NumberToString(counter_val++);
+    }
     else
         return 0;
     macro.replace(begin, end - begin, insert);
@@ -662,7 +659,7 @@ bool ppDefine::ppNumber(const std::string& macro, int start, int pos)
 }
 /* replace macro args */
 bool ppDefine::ReplaceArgs(std::string& macro, const DefinitionArgList& oldargs, const DefinitionArgList& newargs,
-                           const DefinitionArgList& expandedargs, const std::string varargs)
+                           const DefinitionArgList& expandedargs, std::deque<Definition*>& definitions, const std::string varargs)
 {
     std::string name;
     int waiting = 0;
@@ -693,8 +690,12 @@ bool ppDefine::ReplaceArgs(std::string& macro, const DefinitionArgList& oldargs,
                 }
                 else
                 {
+                    int sv;
+                    std::string temp(varargs);
+                    ReplaceSegment(temp, 0, temp.size(), sv, p == macro.size(),
+                                                definitions, nullptr);
                     int rv;
-                    if ((rv = InsertReplacementString(macro, p, q, varargs, varargs)) < -MACRO_REPLACE_SIZE)
+                    if ((rv = InsertReplacementString(macro, p, q, temp, temp)) < -MACRO_REPLACE_SIZE)
                         return (false);
                     else
                         p = q + rv - 1;
@@ -839,6 +840,8 @@ int ppDefine::ReplaceSegment(std::string& line, int begin, int end, int& pptr, b
                     if (d->GetArgCount() > 0)
                     {
                         int ln = name.size();
+                        for (auto d : definitions)
+                             d->SetPreprocessing(false);
                         do
                         {
                             int pb = p;
@@ -868,14 +871,17 @@ int ppDefine::ReplaceSegment(std::string& line, int begin, int end, int& pptr, b
                             args.push_back(temp);
                             expandedargs.push_back(temp);
                             int sv;
+                            std::deque<Definition*> argDefinitions;
                             rv = ReplaceSegment(expandedargs[count], 0, expandedargs[count].size(), sv, p == line.size(),
-                                                definitions, nullptr);
+                                                argDefinitions, nullptr);
                             if (rv < -MACRO_REPLACE_SIZE)
                             {
                                 return rv;
                             }
                             count++;
                         } while (line[p] && line[p++] == ',' && count != d->GetArgCount());
+                        for (auto d : definitions)
+                             d->SetPreprocessing(true);
                     }
                     else
                     {
@@ -923,7 +929,7 @@ int ppDefine::ReplaceSegment(std::string& line, int begin, int end, int& pptr, b
 
                     macro = d->GetValue();
                     if (count != 0 || !varargs.empty() || d->HasVarArgs())
-                        if (!ReplaceArgs(macro, *d->GetArgList(), args, expandedargs, varargs))
+                        if (!ReplaceArgs(macro, *d->GetArgList(), args, expandedargs, definitions, varargs))
                             return INT_MIN;
                     tokenized = Tokenize(macro);
                     Stringize(macro);

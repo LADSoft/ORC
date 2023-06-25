@@ -1,25 +1,25 @@
 /* Software License Agreement
- *
- *     Copyright(C) 1994-2022 David Lindauer, (LADSoft)
- *
+ * 
+ *     Copyright(C) 1994-2023 David Lindauer, (LADSoft)
+ * 
  *     This file is part of the Orange C Compiler package.
- *
+ * 
  *     The Orange C Compiler package is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
- *
+ * 
  *     The Orange C Compiler package is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
- *
+ * 
  *     You should have received a copy of the GNU General Public License
  *     along with Orange C.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * 
  *     contact information:
  *         email: TouchStone222@runbox.com <David Lindauer>
- *
+ * 
  */
 
 #include "InputFile.h"
@@ -32,7 +32,7 @@
 #    include <fcntl.h>
 #else
 #    include <io.h>
-extern "C" char* getcwd(char*, int);
+extern "C" char* _getcwd(char*, int);
 #endif
 
 std::set<std::string> InputFile::fileNameCache;
@@ -40,7 +40,7 @@ std::set<std::string> InputFile::fileNameCache;
 InputFile::~InputFile()
 {
     if (streamid >= 3)
-        close(streamid);
+        _close(streamid);
     CheckErrors();
 }
 bool InputFile::Open()
@@ -54,7 +54,7 @@ bool InputFile::Open()
         streamid = 0;
     }
     else
-        streamid = open(name->c_str(), 0);  // readonly
+        streamid = _open(name->c_str(), 0);  // readonly
     if (streamid >= 0)
         CheckUTF8BOM();
     return streamid >= 0;
@@ -165,7 +165,7 @@ bool InputFile::ReadString(char* s, int len)
                 }
             }
         }
-        inputLen = read(streamid, inputBuffer, sizeof(inputBuffer));
+        inputLen = _read(streamid, inputBuffer, sizeof(inputBuffer));
         bufPtr = inputBuffer;
         if (inputLen <= 0)
         {
@@ -198,7 +198,7 @@ void InputFile::CheckUTF8BOM()
     static unsigned char BOM2[] = {0xff, 0xfe};  // only LE version at this time...
     unsigned char buf[4];
     int l;
-    if (4 == (l = read(streamid, buf, 4)))
+    if (4 == (l = _read(streamid, buf, 4)))
     {
         utf8BOM = !memcmp(BOM, buf, 3);
         if (utf8BOM)
